@@ -49,3 +49,12 @@
 	margin-right: auto;
 	text-align: center;
 }
+
+.blocks{
+	margin-top: 50px;
+	width: 60%;
+	Height: auto;
+	border-color: #A0D8EB;
+	border-width: 5px;
+	border-style: solid;
+}

@@ -1368,7 +1368,6 @@
             <Folder name="Header">
                 <File name="View\Header\header.php" />
             </Folder>
-            <File name="View\index.php" />
             <File name="View\welcome.php" />
         </Folder>
         <File name=".htaccess" />
