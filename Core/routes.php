@@ -1,9 +1,5 @@
 <?php
 
-// This is the big engin of the app, this brings the app to life
-// This is where the URLs are manipulated and data comes into the app
-// Heavy security is comming soon :) 
-
 	class Routes{
 		
 		protected $controller = 'index';

@@ -1,6 +1,5 @@
 <?php
 
-//use RandomLib\Factory;
 use Core\Helpers\Hasher;
 
     class Admin extends View{
@@ -22,11 +21,9 @@ use Core\Helpers\Hasher;
 			$this->val = new Validation($this->user);
 			$this->mailer = new PHPMailer();
 			$this->randomLib = new RandomLib\Factory;
-			// Return this for RandomLib
 			$this->randomLib->getMediumStrengthGenerator();
 			
 			$this->user->bootUp();
-			//$this->csrf->call();
 		}
 		
 		public function email($subject, $message, $recipient){
@@ -40,7 +37,7 @@ use Core\Helpers\Hasher;
 			$this->mailer->isHTML = configs()['Email']['html'];
 			$this->mailer->Subject = $subject;
 			$this->mailer->Body = $message;
-			$this->mailer->addAddress($recipient);     // Add a recipient
+			$this->mailer->addAddress($recipient);
 			$this->mailer->From = configs()['Email']['username'];
 			
 			if(!$this->mailer->send()) {
@@ -102,7 +99,6 @@ use Core\Helpers\Hasher;
 		
 			$this->data = $this->user->login($array);
 			
-			//if(isset($this->data)){
 			if($this->data){
 				if(isset($array['remember'])){
 					// Remember this login
@@ -166,20 +162,8 @@ use Core\Helpers\Hasher;
 				
 				if($this->val->passes()){
 					
-					// Insert
-					/* $this->user->create([
-						'firstname' => $array['firstname'],
-						'lastname' => $array['lastname'],
-						'email' => $array['email'],
-						'username' => $array['username'],
-						'pass' => $array['password'],
-						'admin' => $array['admin'],
-						'reg_date' => $array['reg_date'],
-						'active' => 1
-					]); */
+					// Create a user
 					$this->user->createUser($array);
-					
-					//print_r($this->user->all()->toArray());
 					
 				}
 				else{
@@ -192,8 +176,6 @@ use Core\Helpers\Hasher;
 			else{
 				$message = "They dont match";
 			}
-			
-			//$this->email("Resgistration", "You are now registered", "duanescarlett@gmail.com");
 			
 			// Load an html page and maybe send some data
 			$this->viewLoader('Admin/Header/header');

@@ -73,26 +73,6 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 					)";
 		}
 		
-/* 		public function insert($array){
-			$date = new DateTime();
-			
-			$stack = array(
-				'firstname' => $array['firstname'],
-				'lastname' => $array['lastname'],
-				'username' => $array['username'],
-				'pass' => $array['password'],
-				'email' => $array['email'],
-				'admin' => $array['admin'],
-				'reg_date' => $date->getTimestamp(),
-				'updater' => $date->getTimestamp(), 
-				'active' => true,
-			);
-			
-			$table = "user";
-			$this->db->insert($table, $stack);
-
-		} */
-		
 		public function createUser($array){
 
 			try{
@@ -113,7 +93,6 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 				$error_code = $e->errorInfo[1];
 				if($error_code == 1062){
 					echo 'houston, we have a duplicate entry problem';
-					//return 'houston, we have a duplicate entry problem';
 				}
 			}
 		}
@@ -125,9 +104,6 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 		public function allUsers($bool){
 			$date = new DateTime();
 			$sql = "SELECT * FROM user WHERE 1 AND admin LIKE '$bool' LIMIT 10";
-			//$stack = $this->db->query($sql);	
-			//return $stack;
-			
 		}
 		
 		public function updateRememberCredentials($rememberID, $rememberToken){
