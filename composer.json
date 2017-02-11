@@ -1,0 +1,16 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "~5.2",
+        "league/oauth2-google": "^1.0",
+        "alexgarrett/violin": "2.*",
+        "ircmaxell/random-lib": "^1.2",
+        "catfan/Medoo": "^1.1",
+        "illuminate/database": "^5.4"
+    },
+    "autoload":{
+        "classmap": [
+            "Model",
+			"Core"
+        ]
+    }
+}

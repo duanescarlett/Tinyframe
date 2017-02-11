@@ -1,0 +1,8 @@
+Options -MultiViews
+
+RewriteEngine On
+RewriteBase /TinyFrame/
+RewriteCond %{REQUEST_FILENAME} \.(gif|jpe?g|png|js|css|swf|php|ico|txt|pdf|xml)$ [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ index.php?url=$1 
